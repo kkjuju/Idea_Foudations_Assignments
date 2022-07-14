@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Question 4</title>
+</head>
+<body>
+<input type="text" placeholder="" id="myInput">
+<button type="button" onclick="createList();">Create List</button>
+<h2 id="unOrderedList" style="display:none">An Unordered HTML List</h2>
+<div id='ulContainer'></div>
+<h2 id="orderedList" style="display:none">An Ordered HTML List</h2>
+<div id='olContainer'></div>
+</body>
+<script>
+    function createList() {
+
+        let li;
+        //get the input text
+        //used comma as a separator segregate the input text into javascript array
+        let arr = document.getElementById("myInput").value;
+        arr = arr.split(",");
+
+        //Creating unordered list
+        const ulContainer = document.getElementById('ulContainer');
+        const ulElement = document.createElement('ul');
+        ulElement.setAttribute('id', 'listULContainer');
+
+        for (i = 0; i <= arr.length - 1; i++) {
+            li = document.createElement('li');
+            li.innerHTML = arr[i];
+            ulElement.appendChild(li);
+        }
+        ulContainer.appendChild(ulElement);
+
+        const unOrderedList = document.getElementById('unOrderedList');
+        unOrderedList.setAttribute('style', 'display: block;');
+
+        //Creating ordered list
+        const olContainer = document.getElementById('olContainer');
+        const olElement = document.createElement('ol');
+        olElement.setAttribute('id', 'listOLContainer');
+
+        for (i = 0; i <= arr.length - 1; i++) {
+            li = document.createElement('li');
+            li.innerHTML = arr[i];
+            olElement.appendChild(li);
+        }
+        olContainer.appendChild(olElement);
+
+        const orderedList = document.getElementById('orderedList');
+        orderedList.setAttribute('style', 'display: block;');
+    }
+</script>
+</html>
